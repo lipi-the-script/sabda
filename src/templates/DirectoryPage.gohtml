@@ -1,18 +1,21 @@
 {{ define "directorypage" }}
-<html>
+    <html>
     <head>
+        <meta charset="UTF-8">
         <title>Sabda: Nepali Lyrics Collection :: {{.BaseDir}}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
     </head>
     <body>
-        {{ template "navbar" }}
-        <div class="container">
-            <div class="card" style="width: 100%;">
-              <div class="card-body">
+    {{ template "navbar" }}
+    <div class="container">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
                 <h5 class="card-title">Available Collection for {{.BaseDir}}</h5>
                 <p class="card-text">
-                    <ul class="list-group">
-                      {{range .FileNames}}
+                <ul class="list-group">
+                    {{range .FileNames}}
                         <li class="list-group-item">
                             {{if .Directory }}
                                 <a href="{{.Name}}/index.html">{{.Name}}/</a>
@@ -20,12 +23,12 @@
                                 <a href="{{.Name}}.html">{{.Name}}</a>
                             {{end}}
                         </li>
-                      {{end}}
-                    </ul>
+                    {{end}}
+                </ul>
                 </p>
-              </div>
             </div>
         </div>
+    </div>
     </body>
-</html>
+    </html>
 {{ end }}

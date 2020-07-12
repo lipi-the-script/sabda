@@ -16,7 +16,7 @@ func GetFiles(root string) []os.FileInfo {
         err   error
     )
 
-    ignore := []string{".git", ".idea", "src", "README", "pages", ".DS_Store"}
+    ignore := []string{".git", ".idea", "src", "README", "pages", ".DS_Store", "index.html"}
 
     files, err = ioutil.ReadDir(root)
     if err != nil {
@@ -75,9 +75,5 @@ func GenerateFiles(root string, outputRoot string) bool{
 
 func main() {
     GenerateFiles(".", "./pages")
-
-//     http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
-//         fmt.Fprint(w, GenerateDirectoryPage("/"))
-//     })
-//     http.ListenAndServe(":8009", nil)
+    GenerateHomePage()
 }

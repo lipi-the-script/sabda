@@ -4,7 +4,6 @@ import (
     "html/template"
     "os"
     "log"
-    "fmt"
 )
 
 type File struct {
@@ -56,13 +55,26 @@ func GenerateDetailPage(root string, title string, lines []string, outputFileNam
         Lines: lines,
     }
     tmpl := template.Must(template.ParseFiles("src/templates/DetailsPage.gohtml", "src/templates/NavigationBar.gohtml"))
-    fmt.Println("helo", outputFileName)
+
     f, err := os.Create(outputFileName)
     if err != nil {
         log.Println("create file: ", err)
         return false
     }
     tmpl.ExecuteTemplate(f, "detailpage", data)
+    return true
+}
+
+
+func GenerateHomePage() bool{
+    tmpl := template.Must(template.ParseFiles("src/templates/IndexPage.gohtml", "src/templates/NavigationBar.gohtml"))
+
+    f, err := os.Create("./index.html")
+    if err != nil {
+        log.Println("create file: ", err)
+        return false
+    }
+    tmpl.ExecuteTemplate(f, "indexpage", "")
     return true
 }
 
