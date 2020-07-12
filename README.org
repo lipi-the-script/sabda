@@ -1,6 +1,6 @@
-#+TITLE: sabda
+#+TITLE: sabda : Nepali Lyrics Collection
 
-the community maintained collection of lyrics.
+The community maintained collection of nepali song lyrics.
 
 * Intro
 
